@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useSpring, animated } from "react-spring";
-
 import jsPDF from "jspdf";
 import "./App.css";
-
+import sample from "./assets/panda.mp4";
 const Component = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [showForm, setShowForm] = useState(true);
@@ -155,97 +154,99 @@ const Component = () => {
     opacity: showSadTheme ? 1 : 0,
   });
   const saveFormDataToLocal = () => {
-    localStorage.setItem("formData", JSON.stringify(formData));
+    // localStorage.setItem("formData", JSON.stringify(formData));
   };
 
   return (
     <div>
-      <div id="heart-container"></div>
+      <div className="full-screen-container">
+        <div id="heart-container"></div>
 
-      <div className="love-form">
-        <animated.div style={formAnimation} className="form-container">
-          <h2>This form made only for you dalmi &#10084;</h2>
+        <div className="love-form">
+          <div className="video-container">
+            <video className="videoTag" autoPlay loop muted>
+              <source src={sample} type="video/mp4" />
+            </video>
+          </div>
+          <animated.div style={formAnimation} className="form-container">
+            <h2>This form made only for you dalmi &#10084;</h2>
 
-          {questionIndex === 0 && (
-            <>
-              <label htmlFor="question1">Q.1 How are you Dalmi?</label>
-              <input
-                type="text"
-                id="question1"
-                placeholder={`Please enter your answer ${questionIndex + 1}`}
-                value={formData[questionIndex]}
-                onChange={(e) =>
-                  setFormData([e.target.value, formData[1], formData[2]])
-                }
-              />
-            </>
-          )}
-
-          {questionIndex === 1 && (
-            <>
-              <label htmlFor="question2">
-                Q.2 Do you believe in everlasting love?
-              </label>
-              <input
-                type="text"
-                id="question2"
-                placeholder={`Please enter your answer ${questionIndex + 1}`}
-                value={formData[questionIndex]}
-                onChange={(e) =>
-                  setFormData([formData[0], e.target.value, formData[2]])
-                }
-              />
-            </>
-          )}
-
-          {questionIndex === 2 && (
-            <>
-              <label htmlFor="question3">
-                Q.3 So seriously wala question will you be my valentine interval
-                nhi end tak ??? reason jarur mention krna jo bhi decision ho
-              </label>
-              <input
-                type="text"
-                id="question3"
-                placeholder={`Please enter your answer ${questionIndex + 1}`}
-                value={formData[questionIndex]}
-                onChange={(e) =>
-                  setFormData([formData[0], formData[1], e.target.value])
-                }
-              />
-            </>
-          )}
-
-          <div>
-            {questionIndex !== 2 && (
+            {questionIndex === 0 && (
               <>
-                <button onClick={handlePreviousClick}>Previous</button>
-                <button onClick={handleNextClick}>Next</button>
+                <label htmlFor="question1">Q.1 How are you Dalmi?</label>
+                <input
+                  type="text"
+                  id="question1"
+                  placeholder={`Please enter your answer ${questionIndex + 1}`}
+                  value={formData[questionIndex]}
+                  onChange={(e) =>
+                    setFormData([e.target.value, formData[1], formData[2]])
+                  }
+                />
+              </>
+            )}
+
+            {questionIndex === 1 && (
+              <>
+                <label htmlFor="question2">
+                  Q.2 Do you believe in everlasting love?
+                </label>
+                <input
+                  type="text"
+                  id="question2"
+                  placeholder={`Please enter your answer ${questionIndex + 1}`}
+                  value={formData[questionIndex]}
+                  onChange={(e) =>
+                    setFormData([formData[0], e.target.value, formData[2]])
+                  }
+                />
               </>
             )}
 
             {questionIndex === 2 && (
               <>
-                <button onClick={createHearts}>Yes</button>
-                <button onClick={handleNoClick}>No</button>
+                <label htmlFor="question3">
+                  Q.3 So seriously wala question will you be my valentine
+                  interval nhi end tak ??? reason jarur mention krna jo bhi
+                  decision ho
+                </label>
+                <input
+                  type="text"
+                  id="question3"
+                  placeholder={`Please enter your answer ${questionIndex + 1}`}
+                  value={formData[questionIndex]}
+                  onChange={(e) =>
+                    setFormData([formData[0], formData[1], e.target.value])
+                  }
+                />
               </>
             )}
-          </div>
-        </animated.div>
 
-        {/* <animated.div style={happyThemeAnimation} className="happy-theme">
-          <p>Love is in the air! 💖</p>
-          {showHappyTheme && <Heart />}
-        </animated.div> */}
+            <div>
+              {questionIndex !== 2 && (
+                <>
+                  <button onClick={handlePreviousClick}>Previous</button>
+                  <button onClick={handleNextClick}>Next</button>
+                </>
+              )}
 
-        <animated.div style={sadThemeAnimation} className="sad-theme">
-          <p>Oh no! 😢</p>
-          <textarea
-            placeholder="Please share the reason..."
-            value={reason}
-            onChange={handleReasonChange}
-          />
-        </animated.div>
+              {questionIndex === 2 && (
+                <>
+                  <button onClick={createHearts}>Yes</button>
+                  <button onClick={handleNoClick}>No</button>
+                </>
+              )}
+            </div>
+          </animated.div>
+          <animated.div style={sadThemeAnimation} className="sad-theme">
+            <p>Oh no! 😢</p>
+            <textarea
+              placeholder="Please share the reason..."
+              value={reason}
+              onChange={handleReasonChange}
+            />
+          </animated.div>
+        </div>
       </div>
     </div>
   );
