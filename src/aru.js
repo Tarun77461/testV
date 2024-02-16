@@ -238,14 +238,11 @@ const Component = () => {
               )}
             </div>
           </animated.div>
-          <animated.div style={sadThemeAnimation} className="sad-theme">
-            <p>Oh no! 😢</p>
-            <textarea
-              placeholder="Please share the reason..."
-              value={reason}
-              onChange={handleReasonChange}
-            />
-          </animated.div>
+          <div id="pink-blue-screen" className="pink-blue-screen">
+            <animated.div style={sadThemeAnimation} className="sad-theme">
+              <p>Thank you so much! &#10084;</p>
+            </animated.div>
+          </div>
         </div>
       </div>
     </div>
