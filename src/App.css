@@ -1,24 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Love+Light&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Love+Light&family=Protest+Riot&display=swap");
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
-}
 .full-screen-container {
   height: 100%;
   overflow: hidden;
 }
 
 .love-form {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #fdeff2;
+  background: transparent;
   overflow: hidden;
   height: 100%;
   position: relative;
@@ -51,8 +45,8 @@ h2 {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  /* background-image: url("https://img.freepik.com/premium-photo/fun-panda-astronaut-3d-illustration-from-cartoon-character_890887-7111.jpg");
-  margin-bottom: 20px; */
+  background-image: url("https://img.freepik.com/premium-photo/fun-panda-astronaut-3d-illustration-from-cartoon-character_890887-7111.jpg");
+  margin-bottom: 20px;
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.5s, transform 0.5s;
@@ -155,6 +149,7 @@ label {
   color: white;
   font-weight: 800;
   font-size: 20px;
+  text-shadow: 2px 2px 8px #ff0000 !important;
 }
 @keyframes fall {
   0% {
@@ -191,17 +186,18 @@ label {
 .slide-in {
   animation: slideIn 0.5s ease-in-out; /* Add slide-in animation to form-container */
 }
+input {
+  color: white !important;
+}
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .form-container {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-
+    height: 100vh !;
     max-width: 100vw;
-  }
-  input {
-    color: white;
   }
 }

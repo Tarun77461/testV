@@ -101,15 +101,15 @@ const Component = () => {
   const saveDataToPDF = () => {
     const pdf = new jsPDF();
     pdf.text("Form Data", 20, 10);
-    pdf.text(`Question 1 (How are you Dalmi?) answer: ${formData[0]}`, 20, 20);
+    pdf.text(`Question 1. How are you Dalmi answer: ${formData[0]}`, 20, 20);
     pdf.text(
-      `Question 2 (  Do you believe in everlasting love?) answer: ${formData[1]}`,
+      `Question 2. What's your favorite memory with me? answer: ${formData[1]}`,
       20,
       30
     );
     pdf.text(
-      `Question 3 (  So seriously wala question will you be my valentine interval nhi
-      end tak ??? reason jarur mention krna jo bhi decision ho) answer: ${formData[2]}`,
+      `Question 3 So seriously wala question will you be my valentine interval nhi
+      end tak ??? reason jarur mention krna jo bhi decision ho answer: ${formData[2]}`,
       20,
       40
     );
@@ -164,7 +164,7 @@ const Component = () => {
 
         <div className="love-form">
           <div className="video-container">
-            <video className="videoTag" autoPlay loop muted>
+            <video className="videoTag" autoPlay loop muted playsInline>
               <source src={sample} type="video/mp4" />
             </video>
           </div>
@@ -189,7 +189,7 @@ const Component = () => {
             {questionIndex === 1 && (
               <>
                 <label htmlFor="question2">
-                  Q.2 Do you believe in everlasting love?
+                  Q.2 What's your favorite memory with me?
                 </label>
                 <input
                   type="text"
